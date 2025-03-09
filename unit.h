@@ -3,15 +3,17 @@
 
 #include <iostream>
 #include <bits/shared_ptr.h>
+#include "AbstractCodeFactory.h"
 
 class Unit {
 public:
     using Flags = unsigned int;
-public:
+
     virtual ~Unit() = default;
-    virtual void add( const std::shared_ptr< Unit >& , Flags );
-    virtual std::string compile( unsigned int level = 0 ) const = 0;
-protected:
-    virtual std::string generateShift( unsigned int level ) const;
+
+    // Добавление виртуальных методов
+    virtual void add(const std::shared_ptr<Unit>& unit, Flags flags);
+    virtual std::string compile(unsigned int level = 0, const AbstractCodeFactory* factory = nullptr) const = 0;
+    std::string generateShift(unsigned int level) const;
 };
 #endif // UNIT_H

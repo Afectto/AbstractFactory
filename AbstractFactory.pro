@@ -8,6 +8,9 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         classunit.cpp \
+        cppcodefactory.cpp \
+        csharpcodefactory.cpp \
+        javacodefactory.cpp \
         main.cpp \
         methodunit.cpp \
         printoperatorunit.cpp \
@@ -19,7 +22,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    AbstractCodeFactory.h \
     classunit.h \
+    cppcodefactory.h \
+    csharpcodefactory.h \
+    javacodefactory.h \
     methodunit.h \
     printoperatorunit.h \
     unit.h
