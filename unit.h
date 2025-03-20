@@ -1,8 +1,7 @@
 #ifndef UNIT_H
 #define UNIT_H
 
-#include <iostream>
-#include <bits/shared_ptr.h>
+#include <memory>
 #include "AbstractCodeFactory.h"
 
 class Unit {
