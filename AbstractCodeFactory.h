@@ -21,5 +21,8 @@ public:
 
     // Получение специфичных модификаторов методов (async, static, final и т.д.)
     virtual std::string getMethodModifier(Flags modifier) const = 0;
+
+    // Форматирование вывода текста для конкретного языка
+    virtual std::string createPrintStatement(const std::string& text) const = 0;
 };
 #endif // ABSTRACTCODEFACTORY_H

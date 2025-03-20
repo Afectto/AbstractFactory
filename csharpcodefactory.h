@@ -9,6 +9,7 @@ public:
     std::string createMethod(const std::string& returnType, const std::string& methodName, const std::string& params, Flags modifiers) const override;
     std::string getAccessModifier(int flags) const override;
     std::string getMethodModifier(Flags modifier) const override;
+    std::string createPrintStatement(const std::string& text) const override;
 };
 
 #endif // CSHARPCODEFACTORY_H

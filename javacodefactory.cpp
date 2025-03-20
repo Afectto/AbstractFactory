@@ -6,10 +6,13 @@
 using Flags = unsigned int;
 
 std::string JavaCodeFactory::createClass(const std::string& className, const std::string& content) const {
-    return "class " + className + " {\n" + content + "\n};\n";
+    std::string validName = className.empty() ? "UnnamedClass" : className;
+    return "class " + validName + " {\n" + content + "\n};\n";
 }
 
 std::string JavaCodeFactory::createMethod(const std::string& returnType, const std::string& methodName, const std::string& params, Flags modifiers) const {
+    std::string name = methodName.empty() ? "unnamedMethod" : methodName;
+    std::string type = returnType.empty() ? "void" : returnType;
     std::string result = "    "; // Корректный отступ
     std::string methodModifier = getMethodModifier(modifiers);
     if (!methodModifier.empty()) {
@@ -33,4 +36,8 @@ std::string JavaCodeFactory::getMethodModifier(Flags modifier) const {
     if (modifier & MethodUnit::FINAL) return "final";
     if (modifier & MethodUnit::SYNCHRONIZED) return "synchronized";
     return "";
+}
+
+std::string JavaCodeFactory::createPrintStatement(const std::string &text) const {
+    return "System.out.println(\"" + text + "\");\n";
 }
